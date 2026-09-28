@@ -55,6 +55,11 @@ AB_OTA_UPDATER := false
 # Split system/vendor build properties (Oreo requirement).
 BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
 
+# SELinux
+# The prebuilt kernel supports policy versions up to 30. If boot stops at
+# "SELinux: Could not load policy", set POLICYVERS := 29 and drop allowxperm.
+# POLICYVERS := 29
+
 # Platform policy goes in BOARD_PLAT_SEPOLICY_DIRS, vendor policy in
 # BOARD_SEPOLICY_DIRS; both live in this tree.
 BOARD_PLAT_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/plat
