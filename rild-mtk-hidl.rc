@@ -1,0 +1,14 @@
+# MTK HIDL rild service. The MTK rild installs no init rc of its own.
+#
+# Disabled: started from init.modem.rc once MD1 reports ready.
+# Runs as root: the MTK rild needs ccci nodes and NVRAM paths that the radio
+# uid cannot access.
+service ril-daemon /vendor/bin/hw/rild
+    # MAL AT channel served by libril; mtkmal connects here before it opens
+    # its own mal-mfi socket.
+    socket rild-mal stream 660 root radio
+    class main
+    user root
+    group radio cache inet misc audio log readproc wakelock system
+    capabilities BLOCK_SUSPEND NET_ADMIN NET_RAW
+    disabled
