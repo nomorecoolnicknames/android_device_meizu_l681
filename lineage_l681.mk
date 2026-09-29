@@ -31,8 +31,3 @@ PRODUCT_CHARACTERISTICS := nosdcard
 
 # Boot animation
 TARGET_BOOT_ANIMATION_RES := 1080
-
-# This product targets the API 30 platform.
-ifneq ($(PLATFORM_SDK_VERSION),30)
-$(error l681 lineage-18.1 requires PLATFORM_SDK_VERSION=30)
-endif
