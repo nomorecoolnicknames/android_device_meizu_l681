@@ -1,6 +1,6 @@
 # Meizu M3 Note (l681)
 
-Device tree for the Meizu M3 Note (L681 board revision) for LineageOS 18.1.
+Device tree for the Meizu M3 Note (L681 board revision) for LineageOS 20.0.
 
 ## Specifications
 
@@ -11,7 +11,7 @@ Device tree for the Meizu M3 Note (L681 board revision) for LineageOS 18.1.
 | CPU | ARM Cortex-A53 (arm64) |
 | GPU | Mali-T860 MP2 |
 | Display | 1080 x 1920 |
-| Android | 11 |
+| Android | 13 |
 
 ## Status
 
@@ -25,7 +25,10 @@ Device tree for the Meizu M3 Note (L681 board revision) for LineageOS 18.1.
 
 ## Building
 
-Sync the LineageOS 18.1 source tree and place this tree at `device/meizu/l681`.
+Sync the LineageOS 20.0 source tree and place this tree at `device/meizu/l681`.
+Add the local manifest from
+[android_local_manifests_meizu](https://github.com/nomorecoolnicknames/android_local_manifests_meizu)
+(branch `lineage-20.0`) to `.repo/local_manifests/` and sync again.
 
 Required inputs:
 
