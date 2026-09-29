@@ -5,6 +5,43 @@ BOARD_SECCOMP_POLICY := $(DEVICE_PATH)/seccomp
 include device/meizu/mt6755-common/BoardConfigCommon.mk
 include vendor/meizu/m681/BoardConfigVendor.mk
 
+# Shims
+# Legacy libgui/libui symbols needed by the MTK display and camera blobs.
+TARGET_LD_SHIM_LIBS += \
+    /vendor/lib/libcam_utils.so|/vendor/lib/libmtkshim_gui.so \
+    /vendor/lib/libcam.client.so|/vendor/lib/libmtkshim_gui.so \
+    /vendor/lib/libcam.camnode.so|/vendor/lib/libmtkshim_gui.so \
+    /vendor/lib/libeffecthal.base.so|/vendor/lib/libmtkshim_gui.so \
+    /vendor/lib/libjni_lomoeffect.so|/vendor/lib/libmtkshim_gui.so \
+    /vendor/lib/libvfb_render.so|/vendor/lib/libmtkshim_gui.so \
+    /vendor/lib/libMtkOmxVenc.so|/vendor/lib/libmtkshim_gui.so \
+    /vendor/lib/libmtk_mmutils.so|/vendor/lib/libmtkshim_gui.so \
+    /vendor/lib/libshowlogo.so|/vendor/lib/libmtkshim_gui.so \
+    /vendor/lib/libgui_ext.so|/vendor/lib/libmtkshim_gui.so \
+    /vendor/lib/libui_ext.so|/vendor/lib/libmtkshim_gui.so \
+    /vendor/lib64/libcam_utils.so|/vendor/lib64/libmtkshim_gui.so \
+    /vendor/lib64/libcam.client.so|/vendor/lib64/libmtkshim_gui.so \
+    /vendor/lib64/libcam.camnode.so|/vendor/lib64/libmtkshim_gui.so \
+    /vendor/lib64/libeffecthal.base.so|/vendor/lib64/libmtkshim_gui.so \
+    /vendor/lib64/libjni_lomoeffect.so|/vendor/lib64/libmtkshim_gui.so \
+    /vendor/lib64/libvfb_render.so|/vendor/lib64/libmtkshim_gui.so \
+    /vendor/lib64/libmtk_mmutils.so|/vendor/lib64/libmtkshim_gui.so \
+    /vendor/lib64/libgui_ext.so|/vendor/lib64/libmtkshim_gui.so \
+    /vendor/lib64/libui_ext.so|/vendor/lib64/libmtkshim_gui.so
+
+# Shims for the 32-bit GPS/sensor daemons: N-era libgui SensorManager symbols
+# (now in libsensor) and ICU 56 ucnv_* symbols forwarded to ICU 58.
+TARGET_LD_SHIM_LIBS += \
+    /vendor/lib/libmpe.sensorlistener.so|/vendor/lib/libmtkshim_sensor.so \
+    /vendor/bin/mtk_agpsd|/vendor/lib/libmtkshim_icu.so
+
+TARGET_DEVICE := l681
+TARGET_OTA_ASSERT_DEVICE := l681,l681h,l91
+TARGET_VENDOR := meizu
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/fstab.mt6755
+TARGET_SCREEN_WIDTH := 1080
+TARGET_SCREEN_HEIGHT := 1920
+
 # Display
 # The old MTK display blobs are more stable with a 32-bit SurfaceFlinger.
 TARGET_32_BIT_SURFACEFLINGER := true
