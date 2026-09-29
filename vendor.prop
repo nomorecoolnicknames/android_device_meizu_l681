@@ -1,0 +1,8 @@
+# Vendor properties for Meizu M3 Note (l681).
+
+# The 3.10 kernel is older than any kernel in the framework compatibility
+# matrices; skip the kernel part of the VINTF consistency check.
+ro.vendor.vintf.legacy_kernel=true
+
+# audio.primary.mt6755.so is a Nougat build; use the legacy audio HAL ABI.
+ro.vendor.audio.legacy_nougat_abi=1

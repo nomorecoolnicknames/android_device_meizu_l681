@@ -1,0 +1,4 @@
+# Placeholder vendor sepolicy for l681.
+#
+# SELinux is permissive (kernel command line) and SELINUX_IGNORE_NEVERALLOWS
+# is set; device rules are to be added from real denials.

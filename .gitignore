@@ -1,0 +1,8 @@
+# Vendor blobs are never checked in here.
+*.so
+*.apk
+*.bin
+*.img
+*.ko
+*.dat
+*.fw

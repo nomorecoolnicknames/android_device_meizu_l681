@@ -1,7 +1,0 @@
-# Goodix mBack key: short tap sends KEY_BACK, long press KEY_HOME. Keep it out
-# of Generic.kl, where scan code 102 is MOVE_HOME.
-key 158   BACK
-key 102   HOME
-key 139   BACK
-key 232   BACK
-key 196   HOME
